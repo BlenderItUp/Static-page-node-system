@@ -28,7 +28,6 @@ export const renderText = (
   <>
   <div className={`node-${id}`} style={{ ...data.styles }}>
         <p>{data.label || 'Default Text'}{innerChildContent}</p>
-
   </div>
     {childContent}
   </>
