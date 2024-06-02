@@ -34,3 +34,10 @@ export const nodeConfigurations: NodeConfig[] = [
     category: 'Basic',
   },
 ];
+
+
+// Generate nodeTypes from nodeConfigurations
+export const nodeTypes = nodeConfigurations.reduce((acc, config) => {
+  acc[config.type] = config.component;
+  return acc;
+}, {});

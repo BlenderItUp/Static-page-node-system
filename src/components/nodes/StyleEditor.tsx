@@ -9,8 +9,7 @@ interface StyleEditorProps {
 const StyleEditor: React.FC<StyleEditorProps> = ({ selectedNode, updateNodeStyle }) => {
   if (!selectedNode) return null;
   const styles = selectedNode.data.styles || {};
-  console.log(selectedNode)
-
+  
   const handleStyleChange = (newCss: string) => {
     updateNodeStyle(selectedNode.id, { css: newCss });
   };

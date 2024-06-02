@@ -6,7 +6,7 @@ import { renderText } from './html/TextNode';
 
 export const nodeRegistry = {
 //   header: renderHeader,
-  text: renderText,
+TextNode: renderText,
 //   div: renderDiv,
 //   section: SectionNode,
 //   ul: renderUL, // Add the new node type to the registry
