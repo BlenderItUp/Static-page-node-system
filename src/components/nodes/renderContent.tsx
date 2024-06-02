@@ -34,5 +34,5 @@ export const renderContent = (
     return null;
   }
 
-  return renderFunction(connectedNode.data, childContent, innerChildContent);
+  return renderFunction(connectedNode.data, childContent, innerChildContent, nodeId);
 };

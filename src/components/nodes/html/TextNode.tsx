@@ -1,24 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import BaseNode from '../BaseNode';
 import { NodeProps } from 'reactflow';
 
 const TextNode: React.FC<NodeProps> = (props) => {
-  useEffect(() => {
-    // Inject styles dynamically
-    const styleElement = document.createElement('style');
-    styleElement.innerHTML = props.data.styles?.css || '';
-    document.head.appendChild(styleElement);
-
-    // Clean up on component unmount
-    return () => {
-      document.head.removeChild(styleElement);
-    };
-  }, [props.data.styles?.css]);
-
   return (
     <BaseNode {...props}>
       {({ nodeData, handleInputChange }) => (
-        <div className="node" style={{ ...nodeData.styles, fontSize: `${nodeData.styles.fontSize || 14}px` }}>
+        <div className={`node node-${props.id}`} style={{ ...nodeData.styles, fontSize: `${nodeData.styles.fontSize || 14}px` }}>
           <input
             type="text"
             value={nodeData.label || 'Text Content'}
@@ -35,12 +23,14 @@ export const renderText = (
   data: any,
   childContent: React.ReactNode,
   innerChildContent: React.ReactNode,
+  id: any,
 ) => (
-  <div className="node" style={{ ...data.styles }}>
-    <p>{data.label || 'Default Text'}{innerChildContent}</p>
-    {childContent}
-    {innerChildContent}
+  <>
+  <div className={`node-${id}`} style={{ ...data.styles }}>
+        <p>{data.label || 'Default Text'}{innerChildContent}</p>
   </div>
+    {childContent}
+  </>
 );
 
 const styles = {

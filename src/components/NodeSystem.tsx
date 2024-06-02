@@ -22,13 +22,19 @@ const initialNodes = getFromLocalStorage("nodes") || [
     id: "1",
     type: "OutputNode",
     position: { x: 250, y: -480 },
-    data: { label: "", styles: { css: "body { color: red; }" } },
+    data: { label: "", styles: { css: "body { font-size: 12px; }" } },
   },
   {
     id: "2",
     type: "TextNode",
     position: { x: 250, y: -150 },
-    data: { label: "Div Content", styles: { css: "body { color: red; }" } },
+    data: { label: "Div Content", styles: { css: ".node-1 { color: blue; font-size: 20px;}" } },
+  },
+  {
+    id: "3",
+    type: "TextNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: { css: ".node-2 { color: red; }" } },
   },
   // {
   //   id: "12",
