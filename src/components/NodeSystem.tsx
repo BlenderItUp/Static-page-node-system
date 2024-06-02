@@ -30,6 +30,12 @@ const initialNodes = getFromLocalStorage("nodes") || [
     position: { x: 250, y: -150 },
     data: { label: "Div Content", styles: { css: "body { color: red; }" } },
   },
+  {
+    id: "3",
+    type: "TextNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: { css: "body { color: red; }" } },
+  },
   // {
   //   id: "12",
   //   type: "div",

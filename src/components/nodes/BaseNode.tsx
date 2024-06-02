@@ -12,13 +12,25 @@ const BaseNode: React.FC<BaseNodeProps> = ({ id, data, children }) => {
     setNodeData(data);
   }, [data]);
 
+  useEffect(() => {
+    // Inject styles dynamically
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = data.styles?.css || '';
+    document.head.appendChild(styleElement);
+
+    // Clean up on component unmount
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, [data.styles?.css]);
+
   const handleInputChange = (key: string, value: any) => {
     setNodeData({ ...nodeData, [key]: value });
     data[key] = value; // Ensure the main data object is updated as well
   };
 
   return (
-    <div style={{ ...styles.container, ...nodeData.styles }}>
+    <div className={`node node-${id}`} style={{ ...styles.container, ...nodeData.styles }}>
       {children({ nodeData, handleInputChange })}
       <Handle type="source" position={Position.Bottom} id="a" />
       <Handle
