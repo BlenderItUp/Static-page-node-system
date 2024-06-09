@@ -1,16 +1,22 @@
 // HeaderNode.tsx
-import React from 'react';
-import BaseNode from './BaseNode';
-import { NodeProps } from 'reactflow';
+import React from "react";
+import BaseNode from "../BaseNode";
+import { NodeProps } from "reactflow";
 
 const HeaderNode: React.FC<NodeProps> = (props) => {
   return (
     <BaseNode {...props}>
       {({ nodeData, handleInputChange }) => (
-        <div style={nodeData.styles}>
+        <div
+          className={`node node-${props.id}`}
+          style={{
+            ...nodeData.styles,
+            fontSize: `${nodeData.styles.fontSize || 14}px`,
+          }}
+        >
           <select
-            value={nodeData.level || 'h1'}
-            onChange={(e) => handleInputChange('level', e.target.value)}
+            value={nodeData.level || "h1"}
+            onChange={(e) => handleInputChange("level", e.target.value)}
             style={styles.select}
           >
             <option value="h1">h1</option>
@@ -20,8 +26,8 @@ const HeaderNode: React.FC<NodeProps> = (props) => {
           </select>
           <input
             type="text"
-            value={nodeData.label || 'Header Content'}
-            onChange={(e) => handleInputChange('label', e.target.value)}
+            value={nodeData.label || "Header Content"}
+            onChange={(e) => handleInputChange("label", e.target.value)}
             style={styles.input}
           />
         </div>
@@ -34,11 +40,12 @@ export const renderHeader = (
   data: any,
   childContent: React.ReactNode,
   innerChildContent: React.ReactNode,
+  id: any,
 ) => {
   const HeaderTag = data.level;
   return (
     <>
-      <HeaderTag style={data.styles}>
+      <HeaderTag className={`node-${id}`} style={{ ...data.styles }}>
         {data.label}
         {innerChildContent}
       </HeaderTag>
@@ -49,13 +56,13 @@ export const renderHeader = (
 
 const styles = {
   select: {
-    marginBottom: '10px',
+    marginBottom: "10px",
   },
   input: {
-    width: '100%',
-    padding: '5px',
-    fontSize: '1.5em',
-    textAlign: 'center',
+    width: "100%",
+    padding: "5px",
+    fontSize: "1.5em",
+    textAlign: "center",
   },
 };
 
