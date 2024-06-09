@@ -11,11 +11,10 @@ import ReactFlow, {
 } from "reactflow";
 import StyleEditor from "./nodes/StyleEditor";
 import { saveToLocalStorage, getFromLocalStorage } from "../utils/localStorage";
-import { renderContent } from "./nodes/renderContent"; 
-import { nodeTypes } from "./nodes/nodeConfig"; 
+import { renderContent } from "./nodes/renderContent";
+import { nodeTypes } from "./nodes/nodeConfig";
 
 import "reactflow/dist/style.css";
-
 
 const initialNodes = getFromLocalStorage("nodes") || [
   {
@@ -28,7 +27,10 @@ const initialNodes = getFromLocalStorage("nodes") || [
     id: "2",
     type: "TextNode",
     position: { x: 250, y: -150 },
-    data: { label: "Div Content", styles: { css: ".node-1 { color: blue; font-size: 20px;}" } },
+    data: {
+      label: "Div Content",
+      styles: { css: ".node-1 { color: blue; font-size: 20px;}" },
+    },
   },
   {
     id: "3",
@@ -36,36 +38,148 @@ const initialNodes = getFromLocalStorage("nodes") || [
     position: { x: 250, y: -150 },
     data: { label: "Div Content", styles: { css: ".node-2 { color: red; }" } },
   },
-  // {
-  //   id: "12",
-  //   type: "div",
-  //   position: { x: 250, y: -150 },
-  //   data: { label: "Div Content", styles: {} },
-  // },
-  // {
-  //   id: "13",
-  //   type: "div",
-  //   position: { x: 250, y: -150 },
-  //   data: { label: "Div Content", styles: {} },
-  // },
-  // {
-  //   id: "14",
-  //   type: "div",
-  //   position: { x: 250, y: -150 },
-  //   data: { label: "Div Content", styles: {} },
-  // },
-  // {
-  //   id: "3",
-  //   type: "header",
-  //   position: { x: 500, y: 0 },
-  //   data: { level: "h1", label: "John Doe", styles: {} },
-  // },
-  // {
-  //   id: "4",
-  //   type: "text",
-  //   position: { x: 500, y: 200 },
-  //   data: { label: "Full Stack Developer", styles: {} },
-  // },
+  {
+    id: "4",
+    type: "DivNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: {} },
+  },
+  {
+    id: "5",
+    type: "DivNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: {} },
+  },
+  {
+    id: "6",
+    type: "DivNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: {} },
+  },
+  {
+    id: "7",
+    type: "DivNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: {} },
+  },
+  {
+    id: "8",
+    type: "DivNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: {} },
+  },
+  {
+    id: "9",
+    type: "DivNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: {} },
+  },
+  {
+    id: "10",
+    type: "DivNode",
+    position: { x: 250, y: -150 },
+    data: { label: "Div Content", styles: {} },
+  },
+
+  {
+    id: "11",
+    type: "HeaderNode",
+    position: { x: 500, y: 0 },
+    data: { level: "h1", label: "John Doe", styles: {} },
+  },
+  {
+    id: "12",
+    type: "HeaderNode",
+    position: { x: 500, y: 0 },
+    data: { level: "h1", label: "John Doe", styles: {} },
+  },
+  {
+    id: "13",
+    type: "HeaderNode",
+    position: { x: 500, y: 0 },
+    data: { level: "h1", label: "John Doe", styles: {} },
+  },
+  {
+    id: "14",
+    type: "HeaderNode",
+    position: { x: 500, y: 0 },
+    data: { level: "h1", label: "John Doe", styles: {} },
+  },
+  {
+    id: "15",
+    type: "HeaderNode",
+    position: { x: 500, y: 0 },
+    data: { level: "h1", label: "John Doe", styles: {} },
+  },
+  {
+    id: "16",
+    type: "HeaderNode",
+    position: { x: 500, y: 0 },
+    data: { level: "h1", label: "John Doe", styles: {} },
+  },
+  {
+    id: "17",
+    type: "TextNode",
+    position: { x: 500, y: 200 },
+    data: { label: "Full Stack Developer", styles: {} },
+  },
+  {
+    id: "18",
+    type: "TextNode",
+    position: { x: 500, y: 200 },
+    data: { label: "Full Stack Developer", styles: {} },
+  },
+  {
+    id: "19",
+    type: "TextNode",
+    position: { x: 500, y: 200 },
+    data: { label: "Full Stack Developer", styles: {} },
+  },
+  {
+    id: "20",
+    type: "TextNode",
+    position: { x: 500, y: 200 },
+    data: { label: "Full Stack Developer", styles: {} },
+  },
+  {
+    id: "21",
+    type: "ULNode",
+    position: { x: 50, y: 300 },
+    data: {
+      styles: {},
+      items: [
+        "Project 1: https://github.com/johndoe/project1",
+        "Project 2: https://github.com/johndoe/project2",
+        "Project 3: https://github.com/johndoe/project3",
+      ],
+    },
+  },
+  {
+    id: "22",
+    type: "ULNode",
+    position: { x: 50, y: 300 },
+    data: {
+      styles: {},
+      items: [
+        "Project 1: https://github.com/johndoe/project1",
+        "Project 2: https://github.com/johndoe/project2",
+        "Project 3: https://github.com/johndoe/project3",
+      ],
+    },
+  },
+  {
+    id: "23",
+    type: "ULNode",
+    position: { x: 50, y: 300 },
+    data: {
+      styles: {},
+      items: [
+        "Project 1: https://github.com/johndoe/project1",
+        "Project 2: https://github.com/johndoe/project2",
+        "Project 3: https://github.com/johndoe/project3",
+      ],
+    },
+  },
   // {
   //   id: "5",
   //   type: "header",
@@ -206,8 +320,8 @@ const NodeSystem: React.FC = () => {
   const updateNodeStyle = (nodeId: string, newStyles: { css: string }) => {
     setNodes(
       nodes.map((node) =>
-        node.id === nodeId ? { ...node, data: { styles: newStyles } } : node
-      )
+        node.id === nodeId ? { ...node, data: { styles: newStyles } } : node,
+      ),
     );
   };
 
@@ -221,9 +335,9 @@ const NodeSystem: React.FC = () => {
 
   useEffect(() => {
     if (previewMode) {
-      nodes.forEach(node => {
+      nodes.forEach((node) => {
         if (node.data?.styles?.css) {
-          const styleElement = document.createElement('style');
+          const styleElement = document.createElement("style");
           styleElement.innerHTML = node.data.styles.css;
           document.head.appendChild(styleElement);
 
@@ -237,7 +351,7 @@ const NodeSystem: React.FC = () => {
 
   const onConnect = (params: Edge | Connection) =>
     setEdges((eds) => addEdge(params, eds));
-  console.log(nodes.filter((node) => node.type === "OutputNode"))
+  console.log(nodes.filter((node) => node.type === "OutputNode"));
   return (
     <div style={{ display: "flex", height: "100vh", width: "100vw" }}>
       {previewMode ? (
